@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+	{% for i in data[30*page:30*page+30] %}
+		<h3>Test #{{data.index(i)}}</h3>
+		<div class='foo'>
+			<img src="{{i['test_img_path']}}" class='center'>
+			<br>
+			{% for j in i['result_img_path'] %}
+				<li>
+					<img src="{{j}}">
+				</li>
+			{% endfor %}
+			<br>
+			<hr class='hr'>
+		</div>
+	{% endfor %}
+	<br><br>
+	<a href='/{{page+2}}'>
+		<button type="button" class="btn btn-primary btn-lg">Next Page</button>
+	</a>
+	<br><br>
+{% endblock %}
